@@ -1,50 +1,46 @@
 # Metacrafters_Challenge
-# Creating My First Token 
+## Creating My First Token
 
-This Solidity program is a simple program about creating a ERC20 token and deploying it to diffrent testnets.
+This Solidity program is a simple guide to creating an ERC20 token and deploying it to different testnets.
 
-## Description
+### Description
 
-This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract has mainly 2 function:-
+This program introduces a basic smart contract written in Solidity, a programming language designed for Ethereum blockchain smart contract development. The contract focuses on two primary functions:
 
--> Mint Function (To mint tokens)
+- Mint Function (Token minting)
+- Burn Function (Token burning)
 
--> Burn Function  (To burn tokens)
+### Execution Instructions
 
+To execute this program, you can utilize Remix, an online Solidity Integrated Development Environment (IDE). Follow these steps:
 
+1. Visit the Remix website: [https://remix.ethereum.org/](https://remix.ethereum.org/).
+2. On the Remix website, initiate a new file by clicking on the "+" icon found in the left-hand sidebar. Save the file with a .sol extension (e.g., Token.sol).
+3. Copy and paste the provided code snippet into the newly created file:
 
-### Executing program
-
-To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
-
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., Token.sol). Copy and paste the following code into the file:
-
-javascript
+```solidity
 pragma solidity ^0.8.4;
 
 contract MyToken {
-
-    // public variables here
-    string public tokenname = "ARPIT"; 
-    string public tokenAbbrv = "APT"; 
+    string public tokenName = "ARPIT";
+    string public tokenAbbreviation = "APT";
     uint public totalSupply = 0;
 
-    // mapping variable here
     mapping(address => uint) public balances;
 
-    // mint function
-    function mint (address _address, uint _value) public {
-        totalSupply += _value; 
+    function mint(address _address, uint _value) public {
+        totalSupply += _value;
         balances[_address] += _value;
     }
-    // burn function
-    function burn (address _address, uint _value) public { 
+
+    function burn(address _address, uint _value) public {
         if (balances[_address] >= _value) {
-            totalSupply -= _value; 
+            totalSupply -= _value;
             balances[_address] -= _value;
         }
     }
 }
+
 
 
 
